@@ -147,13 +147,13 @@ for key in keywords:
     wp_content = f'{wp_intro}{wp_first_h2}{wp_why_important}{wp_second_h2}{wp_how_to_choose}{wp_third_h2}{wp_what_consider}' \
                  f'{wp_conclusion_h2}{wp_conclusion}'
 
-    def wp_posting(wp_title, slug, wp_content, excerpt):
+    def wp_posting(wp_title, slug, wp_content):
         api_url = url
         data = {
             'title': wp_title,
             'slug': slug,
             'content': wp_content,
-            'excerpt': 'excerpt'
+            'categories': '7'
         }
         res = post(api_url, data=data, headers=header, verify=False)
         if res.status_code == 201:
@@ -161,6 +161,6 @@ for key in keywords:
         else:
             print(' Wrong')
 
-    wp_posting(wp_title, slug, wp_content, 'excerpt')
+    wp_posting(wp_title, slug, wp_content)
 
 
